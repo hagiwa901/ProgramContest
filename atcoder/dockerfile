@@ -1,0 +1,8 @@
+FROM python:3.6-slim AS OJ
+RUN pip3 install online-judge-tools
+
+FROM node:18-alpine3.17
+COPY --from=OJ / /
+RUN apk update && \
+    apk add alpine-sdk cmake clang libressl-dev && \
+    npm install -g npm atcoder-cli

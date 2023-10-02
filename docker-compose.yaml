@@ -1,12 +1,8 @@
 version: "3"
 services:
     atcoder:
-      container_name: atcoder
-      build: './aoj'
+      build: './atcoder'
       tty: true
-    compiler:
-      image: gcc:12.2.0
       volumes:
         - ./src:/src
       working_dir: /src
-      command: g++ main.cpp -o main

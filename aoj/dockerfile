@@ -1,6 +1,0 @@
-FROM python:3.6-slim AS OJ
-RUN pip3 install online-judge-tools
-
-FROM node:20-bullseye-slim
-COPY --from=OJ / /
-RUN npm install -g npm atcoder-cli
